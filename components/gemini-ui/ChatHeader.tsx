@@ -24,7 +24,7 @@ export default function ChatHeader({
         <span className="sr-only">Toggle sidebar</span>
       </Button>
       <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
-        EchoMind AI Assistant
+        RF AI Assistant
       </h1>
       <ThemeToggle />
     </header>
