@@ -2,11 +2,17 @@ import React from "react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Bot, User } from "lucide-react";
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { CopyBlock, dracula } from "react-code-blocks";
 
 interface ChatMessageProps {
   message: { role: string; content: string };
+}
+
+// Update CodeProps to make children optional
+interface CodeProps {
+  inline?: boolean;
+  className?: string;
+  children?: React.ReactNode; // Make children optional
 }
 
 export default function ChatMessage({ message }: ChatMessageProps) {
@@ -42,29 +48,19 @@ export default function ChatMessage({ message }: ChatMessageProps) {
           <ReactMarkdown
             className="prose prose-sm prose-blue"
             components={{
-              // @ts-expect-error: Unreachable code error
-              code({ inline, className, children, ...props }) {
+              code({ inline, className, children }: CodeProps) {
                 const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
-                  <SyntaxHighlighter
-                    // @ts-expect-error: Unreachable code error
-                    style={materialDark}
-                    language={match[1]}
-                    PreTag="div"
-                    showLineNumbers
-                    customStyle={{
-                      borderRadius: "0.375rem",
-                      backgroundColor: "#282C34",
-                      padding: "1rem",
-                    }}
-                    {...props}
-                  >
-                    {String(children).replace(/\n$/, "")}
-                  </SyntaxHighlighter>
+                const language = match ? match[1] : "text";
+                return !inline ? (
+                  <CopyBlock
+                    text={String(children).replace(/\n$/, "")}
+                    language={language}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    codeBlock
+                  />
                 ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
+                  <code className={className}>{children}</code>
                 );
               },
             }}
