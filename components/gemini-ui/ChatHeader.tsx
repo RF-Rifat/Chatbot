@@ -23,7 +23,7 @@ export default function ChatHeader({
         <Menu className="h-5 w-5 text-gray-600 dark:text-gray-300" />
         <span className="sr-only">Toggle sidebar</span>
       </Button>
-      <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+      <h1 className="md:text-xl font-semibold text-gray-800 dark:text-gray-200">
         RF AI Assistant
       </h1>
       <ThemeToggle />
