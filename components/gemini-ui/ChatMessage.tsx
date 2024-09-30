@@ -16,6 +16,7 @@ interface CodeProps {
 }
 
 export default function ChatMessage({ message }: ChatMessageProps) {
+  console.log(message);
   return (
     <div
       className={`flex ${
@@ -42,12 +43,23 @@ export default function ChatMessage({ message }: ChatMessageProps) {
           className={`rounded-lg p-3 ${
             message.role === "user"
               ? "bg-blue-500 text-white"
-              : "dark:bg-[#302f2fd3] dark:text-white border border-gray-200 shadow-sm"
+              : "dark:bg-[#302f2fd3] dark:text-white border dark:border-gray-700 shadow-sm"
           }`}
         >
           <ReactMarkdown
             className="prose prose-sm prose-blue"
             components={{
+              // Custom rendering for links
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500 underline"
+                >
+                  {children}
+                </a>
+              ),
               code({ inline, className, children }: CodeProps) {
                 const match = /language-(\w+)/.exec(className || "");
                 const language = match ? match[1] : "text";
