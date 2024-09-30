@@ -42,7 +42,7 @@ export default function ChatMessage({ message }: ChatMessageProps) {
           className={`rounded-lg p-3 ${
             message.role === "user"
               ? "bg-blue-500 text-white"
-              : "bg-white border border-gray-200 shadow-sm"
+              : "dark:bg-[#302f2fd3] dark:text-white border border-gray-200 shadow-sm"
           }`}
         >
           <ReactMarkdown
