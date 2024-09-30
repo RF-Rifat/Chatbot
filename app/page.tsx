@@ -1,5 +1,9 @@
-import GeminiChatbot from "@/components/gemini-chatbot";
+import GeminiChatbot from "@/components/gemini-ui/GeminiChatbot";
 
 export default function Page() {
-  return <GeminiChatbot />;
+  return (
+    <div>
+      <GeminiChatbot />
+    </div>
+  );
 }
