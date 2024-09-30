@@ -20,7 +20,7 @@ export default function ChatHeader({
         className="md:hidden"
         onClick={() => setSidebarOpen(!sidebarOpen)}
       >
-        <Menu className="h-5 w-5 text-gray-600 dark:text-gray-300 hover:dark:text-black" />
+        <Menu className="h-5 w-5" />
         <span className="sr-only">Toggle sidebar</span>
       </Button>
       <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
