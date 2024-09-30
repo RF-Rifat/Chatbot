@@ -41,7 +41,7 @@ export function Sidebar({
               key={index}
               className="truncate text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
             >
-              <span className="font-medium">
+              <span className="font-medium text-wrap">
                 {message.role === "user" ? "You: " : "EchoMind: "}
               </span>
               {message.content}

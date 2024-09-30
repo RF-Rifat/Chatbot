@@ -16,7 +16,7 @@ export default function GeminiChatbot() {
   const initialMessage = {
     id: "1",
     role: "bot",
-    content: `Hello! Welcome to my chatbot. I'm MD Rifadul Islam, a Full Stack Developer specializing in React, Next.js, and the MERN stack. You can learn more about me on my Portfolio : [**https://rifadul-islam.vercel.app**](https://rifadul-islam.vercel.app) MD Rifadul Islam. How can I assist you today?`,
+    content: `Hello! Welcome to my chatbot. I'm MD Rifadul Islam, a Full Stack Developer specializing in React, Next.js, and the MERN stack. You can learn more about me on my Portfolio : [**https://rifadul-islam.vercel.app**](https://rifadul-islam.vercel.app). How can I assist you today?`,
   };
 
   // Only add the initial message if the messages array is empty
